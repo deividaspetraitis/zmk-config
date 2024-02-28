@@ -1,0 +1,78 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+/* Layer active when mouse is active? */
+#define MOUSE_TP 0
+
+/* Enable keymap features that require forks */
+#define HAS_UROB
+#define HAS_MOUSE_KEYS
+#define HAS_MOUSE_TP
+// #define HAS_CAPSLOCK
+
+// Personal includes
+#ifdef HAS_MOUSE_KEYS
+     #include "includes/mouse_keys.dtsi"
+#endif
+
+#ifdef HAS_MOUSE_TP
+     #include "includes/mouse_tp.dtsi"
+#endif
+
+/ {
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+// -----------------------------------------------------------------------------------------
+// | GRAVE |  SEMI   |  COMMA   |  PERIOD   |     P     |   Y   |   |  F  |     G      |     C     |     R    |     L    |  BKSP   |
+// |  TAB  | LGUI A  |  LALT O  |  LSHFT E  |  LCTRL U  |   I   |   |  D  |  RCTRL H   |  RSHFT T  |  RALT N  |  RGUI S  |  BSLH   |
+// |       |   SQT   |     Q    |     J     |     K     |   X   |   |  B  |     M      |     W     |     V    |     Z    |  FSLH   |
+//                                          | LOWER ESC | SPACE |   | ENT |   RAISE    |           |
+                        bindings = <
+   &kp GRAVE  &kp SEMI   &kp COMMA  &kp PERIOD  &kp P       &kp Y          &kp F       &kp G        &kp C       &kp R      &kp L      &kp BSPC
+   &kp TAB    &mt LGUI A &mt LALT O &mt LSHFT E &mt LCTRL U &kp I          &kp D       &mt RCTRL H  &mt RSHFT T &mt RALT N &mt RGUI S &kp BSLH
+   &trans     &kp SQT    &kp Q      &kp J       &kp K       &kp X          &kp B       &kp M        &kp W       &kp V      &kp Z      &kp FSLH
+                                                &trans      &lt 1 ESC      &kp SPACE   &kp RET      &mo 2   &trans
+                        >;
+                };
+                lower_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &kp N7 &kp N5 &kp N3 &kp N1    &kp N9    &kp N0      &kp N2  &kp N4   &kp N6 &kp N8 &kp RIGHT    &kp BSPC
+   &trans &trans &trans &msc LCLK &msc RCLK &trans      &trans  &kp LEFT &trans &trans &trans       &trans
+   &trans &trans &trans &kp DOWN  &kp UP    &trans      &trans  &trans   &trans &trans &kp KP_MINUS &trans
+                        &trans    &lt 1 ESC &kp SPACE   &kp RET &mo 2    &trans
+                        >;
+                };
+
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &kp EXCL &kp AT &kp HASH &kp AMPS &trans    &trans      &kp EQUAL &kp ASTRK &trans    &kp PLUS &kp DLLR &trans
+   &trans   &trans &kp RBKT &kp LBKT &trans    &trans      &trans    &kp CARET &kp RSHFT &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans    &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+                            &trans   &lt 1 ESC &kp SPACE   &kp RET   &mo 2     &trans
+                        >;
+                };
+        };
+};
+
+/* vim: set ft=c tw=174: */

@@ -1,0 +1,25 @@
+# The Kconfig.defconfig file is where overrides for various configuration settings that make sense
+# to have different defaults when this shield is used.
+# One main item that usually has a new default value set here is the ZMK_KEYBOARD_NAME value,
+# which controls the display name of the device over USB and BLE.
+# The updated new default values should always be wrapped inside a conditional on the shield
+# config name defined in the Kconfig.shield file.
+#
+# The side with the PS2 Mouse / TP has to be the central half
+
+if SHIELD_THINK_CORNE_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "ThinkCorne"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_THINK_CORNE_LEFT || SHIELD_THINK_CORNE_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif

@@ -1,0 +1,11 @@
+# Copyright (c) 2020 Pete Johanson
+# SPDX-License-Identifier: MIT
+
+# The Kconfig.shield file defines any additional Kconfig settings that may be relevant when using this keyboard. 
+# For most keyboards, there is just one additional configuration value for the shield itself.
+
+config SHIELD_THINK_CORNE_LEFT
+	def_bool $(shields_list_contains,think_corne_left)
+
+config SHIELD_THINK_CORNE_RIGHT
+	def_bool $(shields_list_contains,think_corne_right)
