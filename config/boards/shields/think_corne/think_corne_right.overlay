@@ -59,8 +59,12 @@
 #endif
 };
 
-&input_config {
+&mouse_ps2_input_listener {
     status = "okay";
+
+   // Some of the available settings depend on the keymap. So they
+   // are adjusted in...
+   // ../../../includes/trackpoint.dsi
 };
 
 // Adjust GPIO interrupt priority to the highest level.
