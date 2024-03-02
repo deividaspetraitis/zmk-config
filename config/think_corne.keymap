@@ -28,6 +28,10 @@
      #include "includes/mouse_tp.dtsi"
 #endif
 
+&mt {
+		tapping-term-ms = <150>;
+};
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -52,9 +56,9 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp N7 &kp N5 &kp N3 &kp N1    &kp N9    &kp N0      &kp N2  &kp N4   &kp N6 &kp N8 &kp RIGHT    &kp BSPC
-   &trans &trans &trans &msc LCLK &msc RCLK &trans      &trans  &kp LEFT &trans &trans &trans       &trans
-   &trans &trans &trans &kp DOWN  &kp UP    &trans      &trans  &trans   &trans &trans &kp KP_MINUS &trans
+   &kp N7 &kp N5 &kp N3 &kp N1    &kp N9    &kp N0      &kp N2  &kp N4   &kp N6 &kp N8 &kp RIGHT &kp BSPC
+   &trans &trans &trans &mkp LCLK &mkp RCLK &trans      &trans  &kp LEFT &trans &trans &trans    &trans
+   &trans &trans &trans &kp DOWN  &kp UP    &trans      &trans  &trans   &trans &trans &kp MINUS &trans
                         &trans    &lt 1 ESC &kp SPACE   &kp RET &mo 2    &trans
                         >;
                 };
@@ -67,7 +71,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp EXCL &kp AT &kp HASH &kp AMPS &trans    &trans      &kp EQUAL &kp ASTRK &trans    &kp PLUS &kp DLLR &trans
-   &trans   &trans &kp RBKT &kp LBKT &trans    &trans      &trans    &kp CARET &kp RSHFT &trans   &trans   &trans
+   &trans   &trans &trans   &kp RBKT &kp LBKT  &trans      &trans    &kp CARET &kp RSHFT &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans    &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                             &trans   &lt 1 ESC &kp SPACE   &kp RET   &mo 2     &trans
                         >;
