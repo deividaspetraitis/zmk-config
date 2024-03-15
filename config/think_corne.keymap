@@ -28,11 +28,18 @@
      #include "includes/mouse_tp.dtsi"
 #endif
 
-&mt {
-		tapping-term-ms = <150>;
-};
-
 / {
+        behaviors {
+                hm: homerow_mods {
+                    compatible = "zmk,behavior-hold-tap";
+                    #binding-cells = <2>;
+                    tapping-term-ms = <150>;
+                    quick-tap-ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&kp>, <&kp>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -44,7 +51,7 @@
 //                                          | LOWER ESC | SPACE |   | ENT |   RAISE    |           |
                         bindings = <
    &kp GRAVE  &kp SEMI   &kp COMMA  &kp PERIOD  &kp P       &kp Y          &kp F       &kp G        &kp C       &kp R      &kp L      &kp BSPC
-   &kp TAB    &mt LGUI A &mt LALT O &mt LSHFT E &mt LCTRL U &kp I          &kp D       &mt RCTRL H  &mt RSHFT T &mt RALT N &mt RGUI S &kp BSLH
+   &kp TAB    &hm LGUI A &hm LALT O &hm LSHFT E &hm LCTRL U &kp I          &kp D       &hm RCTRL H  &hm RSHFT T &hm RALT N &hm RGUI S &kp BSLH
    &trans     &kp SQT    &kp Q      &kp J       &kp K       &kp X          &kp B       &kp M        &kp W       &kp V      &kp Z      &kp FSLH
                                                 &trans      &lt 1 ESC      &kp SPACE   &kp RET      &mo 2   &trans
                         >;
@@ -56,10 +63,10 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp N7 &kp N5 &kp N3 &kp N1    &kp N9    &kp N0      &kp N2  &kp N4   &kp N6 &kp N8 &kp RIGHT &kp BSPC
-   &trans &trans &trans &mkp LCLK &mkp RCLK &trans      &trans  &kp LEFT &trans &trans &trans    &trans
-   &trans &trans &trans &kp DOWN  &kp UP    &trans      &trans  &trans   &trans &trans &kp MINUS &trans
-                        &trans    &lt 1 ESC &kp SPACE   &kp RET &mo 2    &trans
+   &kp N7    &kp N5    &kp N3    &kp N1       &kp N9    &kp N0         &kp N2     &kp N4    &kp N6    &kp N8    &kp RIGHT &kp BSPC
+   &trans    &trans    &trans    &mkp LCLK    &mkp RCLK &trans         &trans     &kp LEFT  &trans    &trans    &trans    &trans
+   &trans    &trans    &trans    &kp DOWN     &kp UP    &trans         &trans     &trans    &trans    &trans    &kp MINUS &trans
+                                 &trans       &lt 1 ESC &kp SPACE      &kp RET    &mo 2     &trans
                         >;
                 };
 
@@ -70,10 +77,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp EXCL &kp AT &kp HASH &kp AMPS &trans    &trans      &kp EQUAL &kp ASTRK &trans    &kp PLUS &kp DLLR &trans
-   &trans   &trans &trans   &kp RBKT &kp LBKT  &trans      &trans    &kp CARET &kp RSHFT &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans    &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                            &trans   &lt 1 ESC &kp SPACE   &kp RET   &mo 2     &trans
+   &trans &trans &trans   &kp RBRC &kp LBRC  &trans      &trans    &trans    &trans    &kp PLUS &kp DLLR  &trans
+   &trans &kp AT &kp EXCL &kp RBKT &kp LBKT  &trans      &kp PRCNT &kp CARET &kp EQUAL &kp AMPS &kp HASH  &trans
+   &trans &trans &trans   &kp RPAR &kp LPAR  &trans      &trans    &kp ASTRK &trans    &trans   &kp UNDER &trans
+                          &trans   &lt 1 ESC &kp SPACE   &kp RET   &mo 2     &trans
                         >;
                 };
         };
