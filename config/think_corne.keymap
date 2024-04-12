@@ -63,9 +63,9 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp N7    &kp N5    &kp N3    &kp N1       &kp N9    &kp N0         &kp N2     &kp N4    &kp N6    &kp N8    &kp RIGHT &kp BSPC
-   &trans    &trans    &trans    &mkp LCLK    &mkp RCLK &trans         &trans     &kp LEFT  &trans    &trans    &trans    &trans
-   &trans    &trans    &trans    &kp DOWN     &kp UP    &trans         &trans     &trans    &trans    &trans    &kp MINUS &trans
+   &kp N7    &kp N5    &kp N3    &kp N1       &kp N9    &kp N0         &kp N2     &kp N4    &kp N6    &kp N8    &kp RIGHT    &kp BSPC
+   &trans    &trans    &trans    &mkp LCLK    &mkp RCLK &trans         &trans     &kp LEFT  &trans    &trans    &trans       &trans
+   &trans    &trans    &trans    &kp DOWN     &kp UP    &trans         &trans     &trans    &trans    &trans    &kp KP_MINUS &trans
                                  &trans       &lt 1 ESC &kp SPACE      &kp RET    &mo 2     &trans
                         >;
                 };
@@ -78,8 +78,8 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &trans &trans &trans   &kp RBRC &kp LBRC  &trans      &trans    &trans    &trans    &kp PLUS &kp DLLR  &trans
-   &trans &kp AT &kp EXCL &kp RBKT &kp LBKT  &trans      &kp PRCNT &kp CARET &kp EQUAL &kp AMPS &kp HASH  &trans
-   &trans &trans &trans   &kp RPAR &kp LPAR  &trans      &trans    &kp ASTRK &trans    &trans   &kp UNDER &trans
+   &trans &kp AT &kp EXCL &kp RBKT &kp LBKT  &trans      &kp PRCNT &kp CARET &kp EQUAL &kp AMPS &kp ASTRK &trans
+   &trans &trans &trans   &kp RPAR &kp LPAR  &trans      &trans    &kp HASH  &trans    &trans   &kp UNDER &trans
                           &trans   &lt 1 ESC &kp SPACE   &kp RET   &mo 2     &trans
                         >;
                 };
