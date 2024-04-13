@@ -3,6 +3,10 @@
 # git config --get core.excludesfile
 .env
 
+# ignore zmk, build directories
+zmk
+build
+
 # Vim backup, undo files
 *.orig
 *~

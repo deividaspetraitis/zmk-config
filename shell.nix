@@ -136,6 +136,7 @@ let
     ninja
     gperf
     python3
+    virtualenv
     ccache
     dtc
     gmp.dev
@@ -153,7 +154,19 @@ pkgs.mkShell {
     export PATH=$PATH:${zephyr-sdk}/arm-zephyr-eabi/bin
     unset CFLAGS
     unset LDFLAGS
-    python3 -m venv ./venv/.venv
-    source ./zephyr/zephyr-env.sh
+    virtualenv ./.venv
+    source ./.venv/bin/activate
+
+    # clone zmk
+    git clone git@github.com:infused-kim/zmk.git -b pr-testing/mouse_ps2_v2 ./zmk
+
+    # setup
+    # https://zmk.dev/docs/development/setup
+    west init -l ./zmk/app/
+    cd ./zmk && west update && west zephyr-export && cd ..
+
+    pip3 install -r ./zmk/zephyr/scripts/requirements.txt
+
+    source ./zmk/zephyr/zephyr-env.sh
   '';
 }
