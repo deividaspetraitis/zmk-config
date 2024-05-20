@@ -81,10 +81,10 @@
                 };
                 lower_layer {
                         bindings = <
-   &kp N7    &kp N5    &kp N3    &kp N1       &kp N9        &kp N0         &kp N2     &kp N4     &kp N6    &kp N8    &RIGHT_END   &kp BSPC
-   &trans    &trans    &trans    &mkp LCLK    &mkp RCLK     &trans         &trans     &LEFT_HOME &trans    &trans    &trans       &trans
-   &trans    &trans    &trans    &kp DOWN     &kp UP        &trans         &trans     &trans     &trans    &trans    &kp KP_MINUS &trans
-                                 &mo FUNC     &lt LOWER ESC &kp SPACE      &kp RET    &mo RAISE  &trans
+   &kp N7    &kp N5    &kp N3         &kp N1       &kp N9        &kp N0       &kp N2     &kp N4     &kp N6    &kp N8    &RIGHT_END   &kp BSPC
+   &trans    &trans    &msc SCRL_DOWN &mkp LCLK    &mkp RCLK     &msc SCRL_UP &trans     &LEFT_HOME &trans    &trans    &trans       &trans
+   &trans    &trans    &trans         &kp DOWN     &kp UP        &trans       &trans     &trans     &trans    &trans    &kp KP_MINUS &trans
+                                      &mo FUNC     &lt LOWER ESC &kp SPACE    &kp RET    &mo RAISE  &trans
                         >;
                 };
                 raise_layer {
