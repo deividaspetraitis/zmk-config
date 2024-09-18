@@ -3,7 +3,7 @@
 # Function to display help message
 display_help() {
     echo "Usage: $0 [side]"
-    echo "Mounts the nice!nano MCU for flashing the specified side (left or right) of the keyboard."
+    echo "Mounts the nice!nano MCU for flashing the specified side (left/left-reset or right/right-reset) of the keyboard."
     echo "Example: $0 left"
     exit 1
 }
@@ -21,7 +21,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # Check if the argument is valid
-if [ "$1" != "left" ] && [ "$1" != "right" ]; then
+if [ "$1" != "left" ] && [ "$1" != "left-reset" ]  && [ "$1" != "right-reset" ] && [ "$1" != "right" ]; then
     echo "Error: Invalid side specified"
     display_help
 fi
@@ -32,13 +32,23 @@ sleep 5
 # Create a mount point
 mkdir -p /media/usb
 
+# Define the USB device paths
+LEFT_DEVICE="/dev/disk/by-id/usb-Adafruit_nRF_UF2_902003A32A806BD7-0:0"
+RIGHT_DEVICE="/dev/disk/by-id/usb-Adafruit_nRF_UF2_97A391CF144F945C-0:0"
+
 # Mount the USB drive based on the specified side
 if [ "$1" == "left" ]; then
-    sudo mount /dev/disk/by-id/usb-Adafruit_nRF_UF2_38F4230B63B3DA6E-0:0 /media/usb
+    sudo mount $LEFT_DEVICE /media/usb
     sudo cp build/left/zephyr/zmk.uf2 /media/usb/
+elif [ "$1" == "left-reset" ]; then
+    sudo mount $LEFT_DEVICE /media/usb
+    sudo cp build/reset/zephyr/zmk.uf2 /media/usb/
 elif [ "$1" == "right" ]; then
-    sudo mount /dev/disk/by-id/usb-Adafruit_nRF_UF2_97A391CF144F945C-0:0 /media/usb
+    sudo mount $RIGHT_DEVICE /media/usb
     sudo cp build/right/zephyr/zmk.uf2 /media/usb/
+elif [ "$1" == "right-reset" ]; then
+    sudo mount $RIGHT_DEVICE /media/usb
+    sudo cp build/reset/zephyr/zmk.uf2 /media/usb/
 fi
 
 # End message
