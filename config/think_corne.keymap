@@ -14,9 +14,10 @@
 /* Layers */
 #define DEFAULT 0
 #define LOWER   1
-#define RAISE   2
-#define ADJUST  3
-#define FUNC    4
+#define MOUSE   2
+#define RAISE   3
+#define ADJUST  4
+#define FUNC    5
 
 /* Layer active when mouse is active? */
 #define MOUSE_TP DEFAULT
@@ -73,18 +74,26 @@
 
                 default_layer {
                         bindings = <
-   &kp GRAVE  &kp SEMI   &kp COMMA  &kp PERIOD  &kp P       &kp Y          &kp F       &kp G        &kp C       &kp R      &kp L      &kp BSPC
-   &kp TAB    &hm LGUI A &hm LALT O &hm LSHFT E &hm LCTRL U &kp I          &kp D       &hm RCTRL H  &hm RSHFT T &hm RALT N &hm RGUI S &kp BSLH
-   &trans     &kp SQT    &kp Q      &kp J       &kp K       &kp X          &kp B       &kp M        &kp W       &kp V      &kp Z      &kp FSLH
-                                                &mo FUNC    &lt LOWER ESC  &kp SPACE   &kp RET      &mo RAISE   &trans
+   &kp GRAVE  &kp SEMI   &kp COMMA  &kp PERIOD  &kp P       &kp Y                            &kp F       &kp G       &kp C       &kp R      &kp L      &kp BSPC
+   &kp TAB    &hm LGUI A &hm LALT O &hm LSHFT E &hm LCTRL U &kp I                            &kp D       &hm RCTRL H &hm RSHFT T &hm RALT N &hm RGUI S &kp BSLH
+   &trans     &kp SQT    &kp Q      &kp J       &kp K       &kp X                            &kp B       &kp M       &kp W       &kp V      &kp Z      &kp FSLH
+                                                &mo FUNC    &lt LOWER ESC  &lt MOUSE SPACE   &kp RET     &mo RAISE   &trans
                         >;
                 };
                 lower_layer {
                         bindings = <
-   &kp N7    &kp N5    &kp N3         &kp N1       &kp N9        &kp N0       &kp N2     &kp N4     &kp N6    &kp N8    &RIGHT_END   &kp BSPC
-   &trans    &trans    &msc SCRL_DOWN &mkp LCLK    &mkp RCLK     &msc SCRL_UP &trans     &LEFT_HOME &trans    &trans    &trans       &trans
-   &trans    &trans    &trans         &kp DOWN     &kp UP        &trans       &trans     &trans     &trans    &trans    &kp KP_MINUS &trans
-                                      &mo FUNC     &lt LOWER ESC &kp SPACE    &kp RET    &mo RAISE  &trans
+   &kp N7    &kp N5    &kp N3    &kp N1       &kp N9        &kp N0       &kp N2     &kp N4     &kp N6    &kp N8    &RIGHT_END   &kp BSPC
+   &trans    &trans    &trans    &trans       &trans        &trans       &trans     &LEFT_HOME &trans    &trans    &trans       &trans
+   &trans    &trans    &trans    &kp DOWN     &kp UP        &trans       &trans     &trans     &trans    &trans    &kp KP_MINUS &trans
+                                 &mo FUNC     &lt LOWER ESC &kp SPACE    &kp RET    &mo RAISE  &trans
+                        >;
+                };
+                mouse_layer {
+                        bindings = <
+   &none    &none    &none    &none           &none         &none      &none     &none             &none    &none    &msc SCRL_RIGHT  &none
+   &none    &none    &none    &mkp LCLK       &mkp RCLK     &none      &none     &msc SCRL_LEFT    &none    &none    &none            &none
+   &none    &none    &none    &msc SCRL_DOWN  &msc SCRL_UP  &none      &none     &none             &none    &none    &none            &none
+                              &mo FUNC        &lt LOWER ESC &kp SPACE  &kp RET   &mo RAISE         &trans
                         >;
                 };
                 raise_layer {
