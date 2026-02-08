@@ -123,10 +123,10 @@
                 };
                 shifted_functional_layer {
                         bindings = <
-   &kp F7 &kp F5 &kp F3 &kp F1       &kp F9        &kp F10     &kp F2    &kp F4      &kp F6 &kp F8 &kp C_FF &trans
-   &trans &trans &trans &trans       &trans        &kp F11     &kp F12   &kp C_RW    &trans &trans &trans   &trans
-   &trans &trans &trans &kp C_VOL_DN &kp C_VOL_UP  &trans      &trans    &kp C_MUTE  &trans &trans &trans   &trans
-                        &trans       &lt LOWER ESC &kp SPACE   &kp RET   &mo RAISE &trans
+   &kp F7 &kp F5 &kp F3 &kp F1         &kp F9         &kp F10     &kp F2    &kp F4      &kp F6 &kp F8 &kp C_FF &trans
+   &trans &trans &trans &trans         &trans         &kp F11     &kp F12   &kp C_RW    &trans &trans &trans   &trans
+   &trans &trans &trans &kp C_CHAN_DEC &kp C_CHAN_INC &trans      &trans    &kp C_MUTE  &trans &trans &trans   &trans
+                        &trans         &lt LOWER ESC  &kp SPACE   &kp RET   &mo RAISE &trans
                         >;
                 };
         };
